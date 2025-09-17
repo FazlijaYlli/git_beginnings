@@ -52,14 +52,14 @@ Git Bash (installé avec git avec le même installateur).
 
 <u>**[Git pour Windows](https://git-scm.com/downloads/win)**</u>
 
----
+
 ### MacOS 🍎
 Sur la page des téléchargements MacOS de [git-scm](https://git-scm.com/downloads/mac), il est recommandé d'utiliser `homebrew` ou `MacPorts` pour 
 télécharger et installer le package `git`.
 
 <u>**[Git for MacOS](https://git-scm.com/downloads/mac)**</u>
 
----
+
 ### Linux 🐧
 git est souvent préinstallé sur les machines Linux, mais dans le cas où votre distribution ne comprends pas git, 
 installez le package `git` depuis votre package manager. Si cela vous intéresse, il est aussi possible de compiler
@@ -67,6 +67,10 @@ git directement depuis ses fichiers sources.
 
 <u>**[Git for Linux](https://git-scm.com/downloads/linux)**</u>
 
+
+### Vérifier que `git` est bien installé 🔧
+Ouvrez le terminal de votre choix et lancez la commande `git --version`. Si la version s'affiche, c'est que
+`git` est correctement installé. Bien joué ! Sinon, renvoyez les étapes d'installation ou demandez-moi de l'aide 😊
 ---
 ## 🐙 GitHub
 Avant de s'attaquer à l'outil `git` en soi, il va falloir préparer GitHub à reçevoir vos données. GitHub offre
@@ -94,7 +98,7 @@ une signature à un commit. Un commit signé prouve qu'il provient bien de vous 
 tierce tenant d'usurper votre identité.
 
 #### 3. E-mail et nom d'utilisateur.trice
-Premièrement, ouvrez votre terminal et entrez ces commandes, en insérant les paramètres correspondants. Veillez à bien
+Premièrement, ouvrez votre terminal et entrez ces commandes une par une, en insérant les paramètres correspondants. Veillez à bien
 renseigner l'addresse e-mail et le nom d'utilisateur que vous avez utilisé pour la création de votre compte GitHub.
 ```shell
 # Configuration des informations que git utilisera dans vos commits.
@@ -135,7 +139,7 @@ Créez une clé exactement de la même manière que la clé de chiffrement SSH, 
 #### 6. Indiquer l'emplacement de votre clé de signature à git
 ```shell
 # Génère une nouvelle paire de clé SSH
-git config --global user.signingkey=<PATH_TO_SSHKEY>
+git config --global user.signingkey <PATH_TO_SSHKEY>
 ```
 **IMPORTANT :** Vous devez mentionner le chemin vers la clé **privée** (sans extension ".pub") et non la clé publique (
 avec extension ".pub")
@@ -157,58 +161,16 @@ git clone <SSH_URL>
 ```
 Si tout se passe bien, `git` vous demandera d'entrer le mot de passe (passphrase) que vous avez choisi lors de la génération de
 vos clés SSH. Entrez ce dernier et si tout se passe bien, git créera un nouveau dossier en local sur votre machine.
-C'est un `clone` de votre premier projet !
+C'est un `clone` de votre premier projet ! Si ça se passe mal (permission denied), revoyez votre configuration SSH.
 
 ---
-## 🔨 Votre premier projet
+## 🔨 Premier pas
 Bravo, vous en avez terminé avec les clés de chiffrement et de signature !
 Dans cette section, vous apprendrez vos premières commandes `git` pour commencer à expérimenter avec git et ses 
-fonctionnalités.
+fonctionnalités. Commencez ce chapitre en ouvrant un terminal dans le `clone` de votre repository GitHub,
+créé juste au dessus.
 
-### Vérifier que `git` est bien installé 🔧
-Ouvrez le terminal de votre choix et lancez la commande `git --version`. Si la version s'affiche, c'est que
-`git` est correctement installé. Bien joué ! Sinon, renvoyez les étapes d'installation ou demandez-moi de l'aide 😊
-### Initialiser un `repository` avec `git init` 📂
-#### 1. Ouvrir un terminal et naviguer dans le dossier du projet
-Selon votre système d'exploitation, votre terminal sera différent. Sur MacOS et Linux, le terminal pré-installé
-fonctionnera parfaitement tant qu'il a accès à git.
-Sur Windows, vous pouvez utiliser Powershell ou Git Bash **(recommandé)**. 
-
-Le terminal s'ouvrira par défaut dans votre dossier "home", portant
-votre nom d'utilisateur. Depuis là, vous pouvez utiliser les comamndes suivantes pour vous déplacer dans votre
-arboresnce de fichiers.
-
-```shell
-# Lister le contenu du dossier actuel
-ls
-
-# Naviguer dans le dossier
-cd <PATH>
-
-# Créer un dossier
-mkdir <DIRNAME>
-
-# Supprimer un dossier
-rm -r <DIRNAME>
-```
-Naviguez jusqu'à ce que votre terminal se trouve dans le dossier souhaité.
-
-#### 2. Initialiser un `repository`
-Lorsque vous vous trouvez dans le dossier souhaité, la commande suivante permets d'initialiser git et de créer
-un repository dans ce dossier.
-```shell
-# Initialisation d'un nouveau repository git dans le dossier actuel, en nommant la branche principale "main".
-git init --initial-branch=main
-```
-Un message de succès comme celui-ci s'affichera.
-```shell
-# Initialisation correcte du repository
-Initialized empty Git repository in /Your/Path/Here/.git/
-```
-Désormais, n'importe quel changement d'état dans les fichiers présents dans ce dossier seront reconnus par `git`.
-C'est ce qu'on va tester maintenant ! ⬇️
-### Préparer ses fichiers modifiés à être sauvegardés 🧳
-#### 1. Créer / Modifier des fichiers dans le `repository
+#### 1. Créer / Modifier des fichiers dans le `repository`
 Créer ou modifier un fichier présent dans le dossier du projet fera réagir `git` et nous permettra d'ajouter ces
 modifications à un commit.
 
@@ -248,11 +210,16 @@ Changes to be committed:
         new file:   README.md
 ```
 
-Finalement, on peut créer un commit 
+### Créer un commit et le "pusher" sur GitHub
+#### 1. Création d'un commit
+Finalement, on peut créer un commit en exécutant cette commande :
+```shell
+# Le paramètre -m permets d'ajouter un titre au commit.
+git commit -m "Mon premier commit"
+```
+Ce commit contiendra toutes les informations marquées comme "staged".
 
-### Créer un commit
-### Lier le repository à GitHub
-### Envoyer les commits au serveur
+
 ## 🌳 Travailler avec des branches
 ### Créer une branche
 ### Fusionner deux branches
