@@ -83,14 +83,14 @@ efficace les fichiers du kernel Linux.
 `git` fonctionne grâce à une architecture client-serveur. Le serveur est appelé `repository` et les clients sont appelé 
 `clones`. Le projet présent sur le serveur est la seule source de vérité. Chaque `clone` est une copie locale du projet.
 
-Afin de garder un historique des changement sur le serveur, `git` utilise des `commits`, qui sont, basiquement, 
+Afin de garder un historique des changements sur le serveur, `git` utilise des `commits`, qui sont, basiquement, 
 des sauvegardes d'un état du projet à un moment donné. Chaque développeur.se travaille sur un `clone`.
 
 Lorsque des modifications sont effectuées sur un `clone`, elles sont détectées par `git`. Lorsqu'on sélectionne les
 modifications que l'on veut appliquer au projet depuis un clone, leurs statut passe de `unstaged` à `staged`. Vous
 pouvez voir le mot-clé `staged` comme "est ajouté au prochain commit".
 
-Et finalement lorsque vous voulez sauvegarder l'état de votre projet dans l'historique des versions git, vous
+Finalement, lorsque vous voulez sauvegarder l'état de votre projet dans l'historique des versions git, vous
 créerez un `commit`, qui contiendra toutes les modifications notées comme `staged`.
 
 Si cela vous paraît confus pour l'instant, c'est normal. Vous verrez en contexte dans les chapitres suivants 😊
@@ -116,9 +116,9 @@ télécharger et installer le package `git`.
 
 
 ### 🐧 Linux
-git est souvent préinstallé sur les machines Linux, mais dans le cas où votre distribution ne comprends pas git, 
+`git` est souvent préinstallé sur les machines Linux, mais dans le cas où votre distribution ne comprends pas `git`, 
 installez le package `git` depuis votre package manager. Si cela vous intéresse, il est aussi possible de compiler
-git directement depuis ses fichiers sources. 
+`git` directement depuis ses fichiers sources. 
 
 <u>**[Git for Linux](https://git-scm.com/downloads/linux)**</u>
 
@@ -129,11 +129,11 @@ Ouvrez le terminal de votre choix et lancez la commande `git --version`. Si la v
 ---
 ## 🐙 GitHub
 Avant de s'attaquer à l'outil `git` en soi, il va falloir préparer GitHub à reçevoir vos données. GitHub offre
-la possibilité d'héberger son repository en ligne, permettant le travail sur le projet possible depuis n'importe ou.
+la possibilité d'héberger son repository en ligne, permettant de travailler sur le projet possible depuis n'importe où.
 
 ### 📣 Se créer un compte
 Rendez-vous sur GitHub et suivez les étapes pour vous créer un compte. Utiliser votre adresse e-mail HEIG-VD peut être
-pratique si vous souhaitez séparer vos projets écoliers de vos projets personnels.
+pratique si vous souhaitez séparer vos projets académiques de vos projets personnels.
 ---
 ### 🎈 Créer un repository de test
 Depuis la page d'accueil sur GitHub, cliquez sur le bouton vert "New" pour créer un nouveau repository. Ensuite,
@@ -144,7 +144,7 @@ en bas de la page.
 Cette étape est **très importante** ! Veillez à bien suivre les instructions qui suivent.
 
 #### 1. Chiffrement ?
-Lorsque que vous allez sauvegarder vos modifications à l'aide de `commits` et les envoyer sur les serveur de fichiers
+Lorsque que vous allez sauvegarder vos modifications à l'aide de `commits` et les envoyer sur les serveurs de fichiers
 GitHub, ces données peuvent être chiffrées à l'aide d'une paire de clés SSH afin de ne pas communiquer en clair.
 
 #### 2. Signature ?
@@ -162,8 +162,8 @@ git config --global user.name <YOUR_USERNAME>
 git config --global commit.gpgSign true
 git config gpg.format ssh
 ```
-Ces commandes définissent l'email et le nom d'utilisateur à utiliser par défaut. La dernière commande permets
-d'activer la signature de commit par défaut et reseigne le type de la clé de signature qui sera utilisé.
+Ces commandes définissent l'email et le nom d'utilisateur à utiliser par défaut. La dernière commande permet
+d'activer la signature de commit par défaut et renseigne le type de la clé de signature qui sera utilisé.
 
 #### 4. Générer une paire de clés pour votre compte
 Afin de générer une paire de clés, entrez cette commande.
@@ -171,7 +171,7 @@ Afin de générer une paire de clés, entrez cette commande.
 # Génère une nouvelle paire de clé SSH
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
-Lorsqu'il vous est demandé de choisir nom de fichiers, appuyez sur entrée pour garder le nom par défaut.
+Lorsqu'il vous est demandé de choisir un nom de fichier, appuyez sur entrée pour garder le nom par défaut.
 Ensuite, entrez un mot de passe de votre choix quand le programme vous demande une "passphrase". Choissisez un
 mot de passe bien sécurisé !
 
@@ -183,7 +183,7 @@ Depuis la page d'accueil de GitHub, rendez-vous dans les paramètres de votre co
 Dans la liste de gauche, trouvez la catégorie "**SSH and GPG keys**".
 
 ##### Clé de chiffrement
-Cliquez sur le bouton vert pour ajouter une clé SSH. Donnez-lui un titre et choissisez le type "Authenticiation key".
+Cliquez sur le bouton vert pour ajouter une clé SSH. Donnez-lui un titre et choissisez le type "Authentication key".
 Dans la fenêtre "Key", insérez le contenu du fichier `<HOME>/.ssh/id_ed25519.pub`. (Un des deux fichiers générés 
 précédemment.)
 
@@ -224,7 +224,7 @@ Lancez cette commande en remplaçant `<SSH_URL>` par l'addresse SSH de votre rep
 git clone <SSH_URL>
 ```
 Si tout se passe bien, `git` vous demandera d'entrer le mot de passe (passphrase) que vous avez choisi lors de la génération de
-vos clés SSH. Entrez ce dernier et si tout se passe bien, `git` créera un nouveau dossier en local sur votre machine.
+votre clé de chiffrement. Entrez ce dernier et si tout se passe bien, `git` créera un nouveau dossier en local sur votre machine.
 C'est un `clone` de votre premier projet ! Si ça se passe mal (permission denied), revoyez votre configuration SSH.
 
 <sub>Pour plus de détails : https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository</sub>
@@ -306,8 +306,8 @@ Bravo, vous avez créé et poussé votre premier commit signé et chiffré ! C'e
 que vous synchroniserez vos changements sur vos projets de laboratoires.
 
 #### 3. Garder son repository à jour
-Si un de vos collaborateurs a poussé ses modifications sur le repository, il faut manuellement demander à `git` de
-mettre à jour le clone actuel avec cette commande :
+Si un de vos collègues a poussé ses modifications sur le repository, il faut manuellement demander à `git` de
+mettre à jour votre clone actuel avec cette commande :
 
 ```shell
 # git ira chercher les dernières modifications du repo et les téléchargera
@@ -327,11 +327,11 @@ Si des conflits sont détectés, ce document les traite dans le chapitre suivant
 `git` fonctionne avec un système de branches. Dans votre repository de test, vous serez 
 sur la branche "main". Chaque commit que vous effectuerez seront liés à cette branche.
 #### 2. Pourquoi créer des branches ?
-Le but des branches est de fournir à un ou plusieurs collaborateur un espace pour travailler
+Le but des branches est de fournir à un ou plusieurs collaborateurs un espace pour travailler
 sur une fonction ou partie spécifique du projet et ne pas avoir à gérer les modifications
 que d'autres collaborateurs poussent sur d'autres parties du projet.
 
-Par exemple, en partant de la branche principale main, on créera une branche `bug_fix`.
+Par exemple, en partant de la branche principale `main`, on créera une branche `bug_fix`.
 En créant des commits sur cette branche et non sur la branche principale, on garantit que
 le contenu présent sur main n'est pas touché avant d'être sûr que le contenu modifié dans la
 branche `bug_fix` est prêt. Ensuite, le contenu de la branche `bug_fix` et fusionné à la branche `main`
@@ -345,7 +345,7 @@ Pour créer une branche, exécutez cette commande dans votre terminal :
 git branch <BRANCH_NAME>
 ```
 Ceci créera une branche à partir de la branche sur laquelle git se trouvait. Le contenu sur
-la branche de départ et la branche créée est donc exactement le même tant qu'aucune modifications n'est
+la branche de départ et la branche créée est donc exactement le même tant qu'aucune modification n'est
 effectuée.
 
 #### 2. Changer de branche
@@ -368,14 +368,14 @@ git merge feature
 
 `git` vous demandera peut-être de choisir un mode de fusion. Pour l'instant, choisissez `fast-forward`.
 
-Si aucun conflits ne sont détectés, le merge s'effectue et les ajouts de la branche
-`feature` sont disponibles sur la 
+Si aucun conflit n'est détecté, le merge s'effectue et les ajouts de la branche
+`feature` sont disponibles sur la branche `main`.
 
 ---
 ## 💥 Gestion des conflits de fusion
 ### 🤼 Un conflit ?
-Les conflits apparaissent lorsque que d'une fusion entre deux branches, et que celle-ci contiennent
-du contenu différent pour le même endroit.
+Les conflits apparaissent lorsque d'une fusion entre deux branches, et que celles-ci contiennent
+du contenu différent pour un même endroit dans le projet.
 
 Lorsque cela arrive, il faut les résoudre manuellement. Ce sujet est bien plus compréhensible avec
 des exemples, c'est pourquoi je vous invite à lire le chapitre[ "Basic Merge Conflicts" du git Book.](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
@@ -386,10 +386,10 @@ nécéssitant un choix. Une fois résolus, les commits peuvent être réalisés 
 ---
 ## 🔬 Utilisation de `git` pour les laboratoires
 Notre souhait dans ce cours de PRG1 et de vous former au plus vite à l'utilisation de `git` dans votre
-formation à la HEIG-VD. Il s'agit d'un outil que vous retrouverez dans une majorité des cours et qui facilite grandement
+formation à la HEIG-VD. Il s'agit d'un outil que vous retrouverez dans une grande majorité des cours et qui facilite grandement
 le travail à plusieurs sur un projet.
 
-Dans ce dernier chapitre, nous vous offrons quelques recommandations pour l'utilisation de git
+Dans ce dernier chapitre, nous vous offrons quelques recommandations pour l'utilisation de `git`
 dans le contexte du cours de PRG1.
 ### 🧠 Réflexion
 Il est important lors d'un travail à plusieurs de réfléchir correctement à un partage du travail
