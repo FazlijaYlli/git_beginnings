@@ -46,6 +46,7 @@
     * [🌱 Créer et travailler sur une branche](#-créer-et-travailler-sur-une-branche)
       * [1. Créer une branche](#1-créer-une-branche)
       * [2. Changer de branche](#2-changer-de-branche)
+      * [3. Pousser une branche](#3-pousser-une-branche)
     * [🌹 Fusionner deux branches](#-fusionner-deux-branches)
   * [💥 Gestion des conflits de fusion](#-gestion-des-conflits-de-fusion)
     * [🤼 Un conflit ?](#-un-conflit-)
@@ -357,6 +358,14 @@ une autre branche, utilisez la commande suivante pour changer de branche.
 ```shell
 # Essaie d'aller sur la branche mentionnée en paramètre 
 git switch <BRANCH_NAME>
+```
+
+#### 3. Pousser une branche
+La première fois que l'on veut synchroniser des changement sur une nouvelle branche avec le
+repository sur GitHub, il faut lancer la commande suivante (seulement la première fois) :
+```shell
+# Depuis la branche en question
+git push --set-upstream origin goodbye_world
 ```
 
 ### 🌹 Fusionner deux branches
