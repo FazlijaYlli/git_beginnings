@@ -126,6 +126,7 @@ installez le package `git` depuis votre package manager. Si cela vous intéresse
 ### 🔧 Vérifier que `git` est bien installé
 Ouvrez le terminal de votre choix et lancez la commande `git --version`. Si la version s'affiche, c'est que
 `git` est correctement installé. Bien joué ! Sinon, renvoyez les étapes d'installation ou demandez-moi de l'aide 😊
+
 ---
 ## 🐙 GitHub
 Avant de s'attaquer à l'outil `git` en soi, il va falloir préparer GitHub à reçevoir vos données. GitHub offre
@@ -134,11 +135,13 @@ la possibilité d'héberger son repository en ligne, permettant de travailler su
 ### 📣 Se créer un compte
 Rendez-vous sur GitHub et suivez les étapes pour vous créer un compte. Utiliser votre adresse e-mail HEIG-VD peut être
 pratique si vous souhaitez séparer vos projets académiques de vos projets personnels.
+
 ---
 ### 🎈 Créer un repository de test
 Depuis la page d'accueil sur GitHub, cliquez sur le bouton vert "New" pour créer un nouveau repository. Ensuite,
 donnez-lui un nom et une description. Ne changez pas les autres options et créez le repository à l'aide du bouton vert
 en bas de la page.
+
 ---
 ### 🔑 Créer et ajouter des clés de chiffrement/signature à votre compte
 Cette étape est **très importante** ! Veillez à bien suivre les instructions qui suivent.
