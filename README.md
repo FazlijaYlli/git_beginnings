@@ -200,8 +200,10 @@ Créez une clé exactement de la même manière que la clé de chiffrement SSH, 
 # Génère une nouvelle paire de clé SSH
 git config --global user.signingkey <PATH_TO_SSHKEY>
 ```
-**IMPORTANT :** Vous devez mentionner le chemin vers la clé **privée** (sans extension ".pub") et non la clé publique (
-avec extension ".pub")
+
+> [!WARNING]
+> Vous devez mentionner le chemin vers la clé **privée** (sans extension ".pub") et non la clé publique (
+> avec extension ".pub")
 
 ---
 ## 🔨 Premiers pas
@@ -220,8 +222,8 @@ git@github.com:user_name/repo_name.git
 ```
 Il s'agit du lien qui sera utilisé pour cloner votre projet en utilisant le chiffrement SSH. 
 
-**IMPORTANT** : ne PAS
-utiliser l'autre lien commençant par `https://`.
+> [!CAUTION]
+> ne PAS utiliser l'autre lien commençant par `https://`.
 
 Lancez cette commande en remplaçant `<SSH_URL>` par l'addresse SSH de votre repository mentionnée juste au-dessus :
 ```shell
@@ -304,7 +306,8 @@ le contenu de votre commit devrait être disponible depuis la page GitHub !
 
 Pour le vérifier, allez sur la page de votre repository GitHub et vérifiez si le commit est bien présent.
 
-**IMPORTANT** : Dans la liste des commits du repository, votre commit doit bien apparaître comme "Verified".
+> [!WARNING]
+> Dans la liste des commits du repository, votre commit doit bien apparaître comme "Verified".
 
 Bravo, vous avez créé et poussé votre premier commit signé et chiffré ! C'est de cette manière
 que vous synchroniserez vos changements sur vos projets de laboratoires.
