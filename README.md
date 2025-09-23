@@ -8,6 +8,8 @@
 ## 🏗️ Table des matières
 <!-- TOC -->
 * [Utiliser facilement `git` (Si, si, c'est possible)](#utiliser-facilement-git-si-si-cest-possible)
+  * [HEIG-VD 25-26 - PRG1](#heig-vd-25-26---prg1)
+  * [🏗️ Table des matières](#-table-des-matières)
   * [📖 Préface](#-préface)
   * [🤔 `git` ? C'est quoi ?](#-git--cest-quoi-)
     * [💬 Réponse courte](#-réponse-courte)
@@ -26,7 +28,7 @@
       * [2. Signature ?](#2-signature-)
       * [3. E-mail et nom d'utilisateur.trice](#3-e-mail-et-nom-dutilisateurtrice)
       * [4. Générer une paire de clés pour votre compte](#4-générer-une-paire-de-clés-pour-votre-compte)
-      * [5. Ajouter vos clés de chiffrement et signature à votre compte GitHub.](#5-ajouter-vos-clés-de-chiffrement-et-signature-à-votre-compte-github)
+      * [5. Ajouter vos clés de chiffrement et signature à votre compte GitHub](#5-ajouter-vos-clés-de-chiffrement-et-signature-à-votre-compte-github)
         * [Clé de chiffrement](#clé-de-chiffrement)
         * [Clé de signature](#clé-de-signature)
       * [6. Indiquer l'emplacement de votre clé de signature à git](#6-indiquer-lemplacement-de-votre-clé-de-signature-à-git)
@@ -223,7 +225,7 @@ git@github.com:user_name/repo_name.git
 Il s'agit du lien qui sera utilisé pour cloner votre projet en utilisant le chiffrement SSH. 
 
 > [!CAUTION]
-> ne PAS utiliser l'autre lien commençant par `https://`.
+> Ne PAS utiliser l'autre lien commençant par `https://`.
 
 Lancez cette commande en remplaçant `<SSH_URL>` par l'addresse SSH de votre repository mentionnée juste au-dessus :
 ```shell
