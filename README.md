@@ -1,6 +1,5 @@
 # Utiliser facilement `git` (Si, si, c'est possible)
 
----
 ## HEIG-VD 25-26 - PRG1
 *Rédigé par Ylli Fazlija*
 
@@ -59,7 +58,6 @@
   * [📄 Feuille de triche pour `git`](#-feuille-de-triche-pour-git)
 <!-- TOC -->
 
----
 ## 📖 Préface
 *Le but de ce court document est de vous donner toutes les bases nécessaires dans le contexte de votre formation 
 à la HEIG-VD ainsi que de servir de résumé de la démonstration effectuée en classe le `23.09.2025`. Si vous n'avez pas
@@ -73,7 +71,6 @@ le "git Book" [disponible gratuitement à cette addresse](https://git-scm.com/bo
 
 Dans les exemples de commandes, les mots entre chevrons en majuscules indiquent un paramètre à insérer.
 
----
 ## 🤔 `git` ? C'est quoi ?
 ### 💬 Réponse courte
 `git` est un programme offrant la possibilité de centraliser un projet sur un serveur et de permettre à plusieurs 
@@ -98,7 +95,6 @@ créerez un `commit`, qui contiendra toutes les modifications notées comme `sta
 
 Si cela vous paraît confus pour l'instant, c'est normal. Vous verrez en contexte dans les chapitres suivants 😊
 
----
 ## 💾 Installer `git`
 ### 🪟 Windows
 La manière la plus simple d'utiliser `git` sous Windows est de télécharger l'installateur depuis [git-scm](https://git-scm.com/downloads/win).
@@ -130,7 +126,6 @@ installez le package `git` depuis votre package manager. Si cela vous intéresse
 Ouvrez le terminal de votre choix et lancez la commande `git --version`. Si la version s'affiche, c'est que
 `git` est correctement installé. Bien joué ! Sinon, renvoyez les étapes d'installation ou demandez-moi de l'aide 😊
 
----
 ## 🐙 GitHub
 Avant de s'attaquer à l'outil `git` en soi, il va falloir préparer GitHub à reçevoir vos données. GitHub offre
 la possibilité d'héberger son repository en ligne, permettant de travailler sur le projet possible depuis n'importe où.
@@ -139,7 +134,6 @@ la possibilité d'héberger son repository en ligne, permettant de travailler su
 Rendez-vous sur GitHub et suivez les étapes pour vous créer un compte. Utiliser votre adresse e-mail HEIG-VD peut être
 pratique si vous souhaitez séparer vos projets académiques de vos projets personnels.
 
----
 ### 🎈 Créer un repository de test
 Depuis la page d'accueil sur GitHub, cliquez sur le bouton vert "New" pour créer un nouveau repository. Ensuite,
 donnez-lui un nom et une description. Ne changez pas les autres options et créez le repository à l'aide du bouton vert
@@ -184,6 +178,8 @@ mot de passe bien sécurisé !
 Vos clés sont désormais créées. Elles se trouvent dans votre dossier utilisateur, dans un dossier caché `.ssh` dans
 votre dossier utilisateur.
 
+<sub>Documentation GitHub : https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key</sub>
+
 #### 5. Ajouter vos clés de chiffrement et signature à votre compte GitHub
 Depuis la page d'accueil de GitHub, rendez-vous dans les paramètres de votre compte.
 Dans la liste de gauche, trouvez la catégorie "**SSH and GPG keys**".
@@ -197,8 +193,10 @@ précédemment.)
 Créez une clé exactement de la même manière que la clé de chiffrement SSH, avec comme seule différence le 
 "Key type" doit être "Signing key".
 
+<sub>Documentation GitHub : https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account</sub>
+
 #### 6. Indiquer l'emplacement de votre clé de signature à git
-```shell
+```bash
 # Génère une nouvelle paire de clé SSH
 git config --global user.signingkey <PATH_TO_SSHKEY>
 ```
@@ -207,7 +205,6 @@ git config --global user.signingkey <PATH_TO_SSHKEY>
 > Vous devez mentionner le chemin vers la clé **privée** (sans extension ".pub") et non la clé publique (
 > avec extension ".pub")
 
----
 ## 🔨 Premiers pas
 Bravo, vous en avez terminé avec les clés de chiffrement et de signature !
 Dans cette section, vous apprendrez vos premières commandes pour commencer à expérimenter avec `git` et ses 
@@ -228,7 +225,7 @@ Il s'agit du lien qui sera utilisé pour cloner votre projet en utilisant le chi
 > Ne PAS utiliser l'autre lien commençant par `https://`.
 
 Lancez cette commande en remplaçant `<SSH_URL>` par l'addresse SSH de votre repository mentionnée juste au-dessus :
-```shell
+```bash
 git clone <SSH_URL>
 ```
 Si tout se passe bien, `git` vous demandera d'entrer le mot de passe (passphrase) que vous avez choisi lors de la génération de
@@ -250,7 +247,7 @@ comme votre nom et le titre du `repository`.
 Une fois votre fichier modifié, il est possible de vérifier que `git` a bien détecté vos ajouts en
 lançant la commande suivante :
 
-```shell
+```bash
 # Informe l'utilisateur des derniers changements.
 git status
 ```
@@ -266,7 +263,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 signifie qu'il ne sera pas pris en compte dans le prochain `commit`. Comme le message vous l'indique,
 la commande pour ajouter ce fichier au prochain commit est la suivante :
 
-```shell
+```bash
 # Ajoute un fichier au commit.
 git add <FILENAME>
 ```
@@ -282,7 +279,7 @@ Changes to be committed:
 ### ✉️ Créer un commit et le pousser sur GitHub
 #### 1. Création d'un commit
 Finalement, on peut créer un commit en exécutant cette commande :
-```shell
+```bash
 # Le paramètre -m permets d'ajouter un titre au commit.
 git commit -m "Mon premier commit"
 ```
@@ -300,7 +297,7 @@ nothing to commit, working tree clean
 #### 2. Pousser ses modifications
 Nos modifications sont prêtes à être envoyées sur le repository GitHub. Pour cela, une seule et
 simple commande suffit :
-```shell
+```bash
 git push
 ```
 Vous devrez entrer une nouvelle fois le mot de passe de votre clé SSH. Une fois ceci fait,
@@ -318,7 +315,7 @@ que vous synchroniserez vos changements sur vos projets de laboratoires.
 Si un de vos collègues a poussé ses modifications sur le repository, il faut manuellement demander à `git` de
 mettre à jour votre clone actuel avec cette commande :
 
-```shell
+```bash
 # git ira chercher les dernières modifications du repo et les téléchargera
 git pull
 ```
@@ -360,7 +357,7 @@ effectuée.
 #### 2. Changer de branche
 Après avoir créé une branche, `git` reste sur la branche de départ. Si vous souhaitez travailler sur
 une autre branche, utilisez la commande suivante pour changer de branche.
-```shell
+```bash
 # Essaie d'aller sur la branche mentionnée en paramètre 
 git switch <BRANCH_NAME>
 ```
@@ -368,14 +365,14 @@ git switch <BRANCH_NAME>
 #### 3. Pousser une branche
 La première fois que l'on veut synchroniser des changement sur une nouvelle branche avec le
 repository sur GitHub, il faut lancer la commande suivante (seulement la première fois) :
-```shell
+```bash
 # Depuis la branche en question
 git push --set-upstream origin goodbye_world
 ```
 
 ### 🌹 Fusionner deux branches
 La fusion d'une branche appelée `feature` dans la branche `main` se fait comme ceci :
-```shell
+```bash
 # On se déplace sur la branche main
 git checkout main
 
